@@ -7,6 +7,7 @@ This project builds a machine learning model to predict house prices using the A
 - **Source**: [Ames Housing Kaggle Dataset](https://www.kaggle.com/datasets/prevek18/ames-housing-dataset)
 - 80+ features including:
   - Neighborhood, square footage, number of bedrooms/bathrooms, year built, garage, etc.
+- **Time Period**: 2006–2010 (historical prices, not current market)
 
 ## ⚙️ Tools & Libraries
 
@@ -22,15 +23,17 @@ This project builds a machine learning model to predict house prices using the A
    - Imputation of missing values
    - Feature scaling
    - One-hot encoding for categorical features
+   - add some features(fail and drop the idea)
 
 2. **Model Selection**:
+    -linear models: linear regression, Lasso, Ridge
    - RandomForestRegressor
    - Hyperparameter tuning using `RandomizedSearchCV`
 
-3. **Evaluation**:
-   - Cross-validation RMSE (mean ± std): `25329.46 ± 4318.89`
-   - Final test RMSE: `21740.69`
-   - 95% Confidence Interval for RMSE: `(97720.69, 110215.70)` (for squared errors, not directly RMSE)
+4. **Evaluation**:  
+    - **Test RMSE**: $21,618 (on held-out data)  
+    - **95% RMSE Confidence Interval**: $18,647 – $24,865  
+      - *Interpretation*: For 95% of similar homes, prediction errors fall in this range.  
 
 ## 📈 Example Prediction
 
@@ -38,12 +41,12 @@ This project builds a machine learning model to predict house prices using the A
 |---------------------|-----------|
 | Overall Quality      | 8         |
 | Living Area (sq ft)  | 2000      |
-| Year Built           | 2005      |
+| Year Built           | 2000      |
 | Garage               | 2 cars    |
 | Bedrooms             | 3         |
 | Full Baths           | 2         |
 
-**Predicted Sale Price**: `$235,683.60`
+**Predicted Sale Price**: `$241,737.67`
 
 ## 💾 Saved Models
 
